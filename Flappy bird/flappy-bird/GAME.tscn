@@ -1,11 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://c63qvjcwqwjto"]
+[gd_scene load_steps=3 format=3 uid="uid://c63qvjcwqwjto"]
 
+[ext_resource type="Script" uid="uid://bh24wo0u23pyp" path="res://background.gd" id="1_d7acc"]
 [ext_resource type="Texture2D" uid="uid://d4i6c2eg8x2jn" path="res://ASSETS/background-day.png" id="1_oornv"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 576.0
-offset_bottom = 1024.0
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_d7acc")
+
+[node name="TextureRect2" type="TextureRect" parent="Node2D"]
+offset_left = 1147.0
+offset_top = 5.0
+offset_right = 1723.0
+offset_bottom = 1029.0
+texture = ExtResource("1_oornv")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="Node2D"]
+offset_left = 569.0
+offset_top = 2.0
+offset_right = 1145.0
+offset_bottom = 1026.0
 texture = ExtResource("1_oornv")
 expand_mode = 1
