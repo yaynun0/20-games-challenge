@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c63qvjcwqwjto"]
+[gd_scene load_steps=7 format=3 uid="uid://c63qvjcwqwjto"]
 
 [ext_resource type="Script" uid="uid://bh24wo0u23pyp" path="res://background.gd" id="1_d7acc"]
 [ext_resource type="Texture2D" uid="uid://d4i6c2eg8x2jn" path="res://ASSETS/background-day.png" id="1_oornv"]
-[ext_resource type="PackedScene" path="res://pajaro_pelotudo.tscn" id="4_w2bf4"]
+[ext_resource type="PackedScene" uid="uid://csjpn3se67lmn" path="res://PIPES.tscn" id="3_glg8j"]
+[ext_resource type="PackedScene" uid="uid://86o4gekrk7sj" path="res://pajaro_pelotudo.tscn" id="4_w2bf4"]
+[ext_resource type="Script" uid="uid://bks2w4de722yx" path="res://pipes.gd" id="5_w2bf4"]
+[ext_resource type="PackedScene" uid="uid://cydga2v716w5x" path="res://base.tscn" id="6_055ep"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -22,3 +25,9 @@ texture = ExtResource("1_oornv")
 
 [node name="PAJARO_PELOTUDO" parent="." instance=ExtResource("4_w2bf4")]
 position = Vector2(370, 554)
+
+[node name="Pipes" parent="." instance=ExtResource("3_glg8j")]
+position = Vector2(983, -4)
+script = ExtResource("5_w2bf4")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("6_055ep")]

@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var flap_sound: AudioStreamPlayer = $flap_sound
 
-var jump_speed = -400
+var jump_speed = -500
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Called when the node enters the scene tree for the first time.

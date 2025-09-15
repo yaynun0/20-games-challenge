@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cydga2v716w5x"]
+
+[ext_resource type="Texture2D" uid="uid://q6qi3ssii2r1" path="res://ASSETS/base.png" id="1_rpg24"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3vi8l"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = 897.0
+offset_right = 336.0
+offset_bottom = 1009.0
+scale = Vector2(1.8, 1.48)
+texture = ExtResource("1_rpg24")
+expand_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(300, 900)
+shape = SubResource("WorldBoundaryShape2D_3vi8l")
