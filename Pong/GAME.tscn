@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://do4xrnsbmd5os"]
+
+[ext_resource type="PackedScene" uid="uid://bpy8mpw7u7nk8" path="res://PLAYER1scn.tscn" id="1_oornv"]
+[ext_resource type="PackedScene" uid="uid://3s2wbtjjdq56" path="res://BALL.tscn" id="2_d7acc"]
+[ext_resource type="PackedScene" uid="uid://qkitpay5wb2s" path="res://PLAYER2scn.tscn" id="3_pma5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oornv"]
+size = Vector2(1152, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pma5d"]
+size = Vector2(21, 664)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 568.0
+offset_right = 584.0
+offset_bottom = 648.0
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_oornv")]
+position = Vector2(240, 280)
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(576, 4)
+shape = SubResource("RectangleShape2D_oornv")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D"]
+offset_right = 1152.0
+offset_bottom = 8.0
+
+[node name="Area2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(576, 644)
+shape = SubResource("RectangleShape2D_oornv")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D2"]
+offset_top = 640.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="RigidBody2D" parent="." instance=ExtResource("2_d7acc")]
+position = Vector2(408, 352)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("3_pma5d")]
+position = Vector2(1016, 328)
+
+[node name="GOAL" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GOAL"]
+position = Vector2(-18.5, 324)
+shape = SubResource("RectangleShape2D_pma5d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GOAL"]
+position = Vector2(1168, 328)
+shape = SubResource("RectangleShape2D_pma5d")
+
+[connection signal="body_entered" from="GOAL" to="RigidBody2D" method="_on_goal_body_entered"]
