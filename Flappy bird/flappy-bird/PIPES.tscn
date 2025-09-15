@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://csjpn3se67lmn"]
+
+[ext_resource type="Texture2D" uid="uid://b582n7fowcxp7" path="res://ASSETS/pipe-green.png" id="1_hl3ck"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmq4k"]
+size = Vector2(50, 320.588)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twpfp"]
+size = Vector2(49.4118, 321.176)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 879)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("1_hl3ck")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(0.294118, 0.294128)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_gmq4k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 145)
+rotation = 3.14159
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("1_hl3ck")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/StaticBody2D"]
+position = Vector2(-1.17648, 0.588165)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_twpfp")

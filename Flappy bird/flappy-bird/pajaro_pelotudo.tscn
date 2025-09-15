@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://86o4gekrk7sj"]
+
+[ext_resource type="Script" uid="uid://cnxkyxeykwo68" path="res://pajaro_pelotudo.gd" id="1_5icdi"]
+[ext_resource type="Texture2D" uid="uid://fom21hhm31jv" path="res://ASSETS/yellowbird-upflap.png" id="2_ky5xx"]
+[ext_resource type="Texture2D" uid="uid://e8dpd3nt8spq" path="res://ASSETS/yellowbird-midflap.png" id="3_ake7d"]
+[ext_resource type="Texture2D" uid="uid://bv52bbsq8b0m0" path="res://ASSETS/yellowbird-downflap.png" id="4_sisrd"]
+[ext_resource type="AudioStream" uid="uid://ci41rfrxhn2bi" path="res://SFX/wing.ogg" id="5_ky5xx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5nb45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ky5xx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ake7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sisrd")
+}],
+"loop": false,
+"name": &"FLAP",
+"speed": 60.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qwik"]
+size = Vector2(34, 20)
+
+[node name="PAJARO_PELOTUDO" type="CharacterBody2D"]
+script = ExtResource("1_5icdi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_5nb45")
+animation = &"FLAP"
+frame = 2
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_7qwik")
+
+[node name="flap_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ky5xx")
