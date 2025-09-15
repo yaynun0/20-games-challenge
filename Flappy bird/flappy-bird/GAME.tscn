@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bh24wo0u23pyp" path="res://background.gd" id="1_d7acc"]
 [ext_resource type="Texture2D" uid="uid://d4i6c2eg8x2jn" path="res://ASSETS/background-day.png" id="1_oornv"]
-[ext_resource type="PackedScene" uid="uid://86o4gekrk7sj" path="res://pajaro_pelotudo.tscn" id="4_w2bf4"]
+[ext_resource type="PackedScene" path="res://pajaro_pelotudo.tscn" id="4_w2bf4"]
 
 [node name="Node2D" type="Node2D"]
 
