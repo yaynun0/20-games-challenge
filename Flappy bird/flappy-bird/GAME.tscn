@@ -9,17 +9,12 @@
 script = ExtResource("1_d7acc")
 
 [node name="TextureRect2" type="TextureRect" parent="Node2D"]
-offset_left = 1147.0
-offset_top = 5.0
-offset_right = 1723.0
-offset_bottom = 1029.0
+offset_left = 576.0
+offset_right = 1152.0
+offset_bottom = 1024.0
 texture = ExtResource("1_oornv")
-expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="Node2D"]
-offset_left = 569.0
-offset_top = 2.0
-offset_right = 1145.0
-offset_bottom = 1026.0
+offset_right = 576.0
+offset_bottom = 1024.0
 texture = ExtResource("1_oornv")
-expand_mode = 1
