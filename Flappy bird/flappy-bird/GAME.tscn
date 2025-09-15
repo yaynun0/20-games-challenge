@@ -4,7 +4,8 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(360, 540)
-scale = Vector2(2.5, 2.10938)
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 576.0
+offset_bottom = 1024.0
 texture = ExtResource("1_oornv")
+expand_mode = 1
