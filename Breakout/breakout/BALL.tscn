@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://xka7j155wly"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyj5m"]
+size = Vector2(12, 12)
+
+[node name="Node2D" type="RigidBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nyj5m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

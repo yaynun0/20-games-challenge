@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1rfvoocgv6le"]
+
+[ext_resource type="PackedScene" uid="uid://xka7j155wly" path="res://BALL.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://be13bweu83ivx" path="res://ball.gd" id="2_7jktm"]
+[ext_resource type="Script" uid="uid://blkhfbggh7j41" path="res://paddle.gd" id="2_fc0e3"]
+[ext_resource type="Script" uid="uid://cg3t388snpk3" path="res://tile_manager.gd" id="2_feb5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc0e3"]
+size = Vector2(32, 728)
+
+[node name="Game" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1085.0
+offset_bottom = 725.0
+color = Color(0, 0, 0, 1)
+
+[node name="Ball" parent="." instance=ExtResource("1_80nbo")]
+position = Vector2(588, 502)
+script = ExtResource("2_7jktm")
+
+[node name="Paddle" type="CharacterBody2D" parent="."]
+position = Vector2(430, 752)
+script = ExtResource("2_fc0e3")
+
+[node name="ColorRect" type="ColorRect" parent="Paddle"]
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 8.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paddle"]
+position = Vector2(-26.1115, -7.92955)
+scale = Vector2(0.124692, 0.109862)
+polygon = PackedVector2Array(210, 80, 146, 80, 82, 88, 18, 104, -46, 128, -46, 144, 466, 144, 466, 128, 402, 104, 338, 88, 274, 80)
+
+[node name="TileManager" type="Node2D" parent="."]
+script = ExtResource("2_feb5d")
+
+[node name="Wall1" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
+position = Vector2(16, 364)
+shape = SubResource("RectangleShape2D_fc0e3")
+
+[node name="ColorRect2" type="ColorRect" parent="Wall1"]
+offset_right = 32.0
+offset_bottom = 730.0
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(1048, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(16, 364)
+shape = SubResource("RectangleShape2D_fc0e3")
+
+[node name="ColorRect2" type="ColorRect" parent="Wall2"]
+offset_right = 32.0
+offset_bottom = 730.0
