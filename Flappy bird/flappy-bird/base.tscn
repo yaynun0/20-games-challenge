@@ -8,8 +8,8 @@
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_top = 897.0
-offset_right = 336.0
-offset_bottom = 1009.0
+offset_right = 320.0
+offset_bottom = 983.0
 scale = Vector2(1.8, 1.48)
 texture = ExtResource("1_rpg24")
 expand_mode = 2

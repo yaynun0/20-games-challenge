@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://c63qvjcwqwjto"]
+[gd_scene load_steps=9 format=3 uid="uid://c63qvjcwqwjto"]
 
 [ext_resource type="Script" uid="uid://bh24wo0u23pyp" path="res://background.gd" id="1_d7acc"]
+[ext_resource type="Script" uid="uid://cmm465auhu8i6" path="res://game.gd" id="1_h47s1"]
 [ext_resource type="Texture2D" uid="uid://d4i6c2eg8x2jn" path="res://ASSETS/background-day.png" id="1_oornv"]
 [ext_resource type="PackedScene" uid="uid://csjpn3se67lmn" path="res://PIPES.tscn" id="3_glg8j"]
 [ext_resource type="PackedScene" uid="uid://86o4gekrk7sj" path="res://pajaro_pelotudo.tscn" id="4_w2bf4"]
-[ext_resource type="Script" uid="uid://bks2w4de722yx" path="res://pipes.gd" id="5_w2bf4"]
+[ext_resource type="Script" uid="uid://c51asg7nol71a" path="res://pipe_manager.gd" id="5_055ep"]
 [ext_resource type="PackedScene" uid="uid://cydga2v716w5x" path="res://base.tscn" id="6_055ep"]
+[ext_resource type="Script" uid="uid://dd6ppdhwy36tt" path="res://piso.gd" id="6_vcvi5"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_h47s1")
 
 [node name="Background" type="Node2D" parent="."]
 script = ExtResource("1_d7acc")
@@ -23,11 +26,40 @@ offset_right = 576.0
 offset_bottom = 1024.0
 texture = ExtResource("1_oornv")
 
+[node name="Timer" type="Timer" parent="Background"]
+wait_time = 2.0
+one_shot = true
+
 [node name="PAJARO_PELOTUDO" parent="." instance=ExtResource("4_w2bf4")]
 position = Vector2(370, 554)
 
-[node name="Pipes" parent="." instance=ExtResource("3_glg8j")]
-position = Vector2(983, -4)
-script = ExtResource("5_w2bf4")
+[node name="PipeManager" type="Node2D" parent="."]
+script = ExtResource("5_055ep")
 
-[node name="StaticBody2D" parent="." instance=ExtResource("6_055ep")]
+[node name="Pipes" parent="PipeManager" instance=ExtResource("3_glg8j")]
+position = Vector2(983, -4)
+
+[node name="Pipes2" parent="PipeManager" instance=ExtResource("3_glg8j")]
+position = Vector2(-88, -376)
+
+[node name="Timer" type="Timer" parent="PipeManager"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Piso" type="Node2D" parent="."]
+script = ExtResource("6_vcvi5")
+
+[node name="Piso" parent="Piso" instance=ExtResource("6_055ep")]
+
+[node name="Piso2" parent="Piso" instance=ExtResource("6_055ep")]
+position = Vector2(576, 0)
+
+[node name="Timer" type="Timer" parent="Piso"]
+wait_time = 2.0
+one_shot = true
+
+[node name="ScoreManager" type="Node2D" parent="."]
+
+[connection signal="timeout" from="Background/Timer" to="Background" method="_on_timer_timeout"]
+[connection signal="timeout" from="PipeManager/Timer" to="PipeManager" method="_on_timer_timeout"]
+[connection signal="timeout" from="Piso/Timer" to="Piso" method="_on_timer_timeout"]

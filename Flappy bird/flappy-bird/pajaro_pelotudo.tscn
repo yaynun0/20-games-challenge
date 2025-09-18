@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://86o4gekrk7sj"]
+[gd_scene load_steps=7 format=3 uid="uid://86o4gekrk7sj"]
 
 [ext_resource type="Script" uid="uid://cnxkyxeykwo68" path="res://pajaro_pelotudo.gd" id="1_5icdi"]
 [ext_resource type="Texture2D" uid="uid://fom21hhm31jv" path="res://ASSETS/yellowbird-upflap.png" id="2_ky5xx"]
@@ -23,9 +23,6 @@ animations = [{
 "speed": 60.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qwik"]
-size = Vector2(34, 20)
-
 [node name="PAJARO_PELOTUDO" type="CharacterBody2D"]
 script = ExtResource("1_5icdi")
 
@@ -36,9 +33,14 @@ animation = &"FLAP"
 frame = 2
 frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_7qwik")
-
 [node name="flap_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ky5xx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(16, -24, 32, 0, 32, 16, 24, 24, -24, 24, -32, 24, -34, 16, -34, 0, -30, -8, -18, -21, -10, -24)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
