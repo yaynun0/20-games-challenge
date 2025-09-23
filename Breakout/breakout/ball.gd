@@ -6,14 +6,16 @@ var v=Vector2(0,0)
 func _ready() -> void:
 	position.x=540
 	position.y=450
-	v=speed*Vector2(0,1) # Replace with function body.
+	v=speed*Vector2(randf_range(0,0.5),1) # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var collision=move_and_collide(v*delta)
 	if collision:
-		print(v.length())
+		print(collision.get_collider().get_class())
+		if collision.get_collider().get_class() =="CharacterBody2D":
+			position.y-=5
 		if v.length()<2000:
 			v -= 2*collision.get_normal().dot(v)*collision.get_normal()
 			v=1.02*v
