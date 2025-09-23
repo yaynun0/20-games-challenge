@@ -1,5 +1,4 @@
-extends StaticBody2D
-var hp=1
+extends Tile
 @onready var color_rect: ColorRect = $ColorRect
 @export var color=Color(1,1,1)
 		
